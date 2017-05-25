@@ -1,0 +1,8 @@
+accuracy
+precision
+recall
+macro f measure
+micro f measure
+hamming loss
+zero one loss
+ranking loss
