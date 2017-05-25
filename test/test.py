@@ -4,14 +4,16 @@ import numpy as np
 y_true = np.array([(1,0,0), (1,0,0), (0,0,1), (1,0,0), (0,1,0)])
 y_pred = np.array([(1,0,0), (0,1,0), (0,0,1), (0,1,0), (1,0,0)])
 macrofmeasure = 0
+count = 0
 for i in range(y_true.shape[1]):
     """ print("Col {}".format(i))
     print(confusion_matrix(y_true[:,i], y_pred[:,i]))
     print("") """
+    count = count + 1
     b = confusion_matrix(y_true[:,i], y_pred[:,i])
     pi1 = b[0,0]/(b[0,0]+b[0,1])
     rho1 = b[0,0]/(b[0,0]+b[1,0])
-    macrofmeasure = macrofmeasure + (2*pi1*rho1)/(pi1+rho1)
+    macrofmeasure = (macrofmeasure + (2*pi1*rho1)/(pi1+rho1))/count
 
 
 print (macrofmeasure)
